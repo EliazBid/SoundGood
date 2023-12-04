@@ -112,7 +112,7 @@ LEFT JOIN lesson
 GROUP BY
     instructor.id, person.first_name, person.last_name, EXTRACT(MONTH FROM lesson.time_slot)
 HAVING
-    COUNT(lesson.id) > 0 AND EXTRACT(MONTH FROM lesson.time_slot) = 11 --change for specified month
+    COUNT(lesson.id) > 0 AND EXTRACT(MONTH FROM lesson.time_slot) = 11; --change for specified month
 
 --view for query three, month to look at must be specified outside view
 CREATE VIEW instructor_work AS
@@ -125,7 +125,7 @@ LEFT JOIN lesson
 GROUP BY
     instructor.id, person.first_name, person.last_name, EXTRACT(MONTH FROM lesson.time_slot)
 HAVING
-    COUNT(lesson.id) > 0
+    COUNT(lesson.id) > 0;
 
 --query four
 SELECT
@@ -143,4 +143,4 @@ FROM
 JOIN
     ensemble ON lesson.id = ensemble.lesson_id
 WHERE
-    EXTRACT(WEEK FROM lesson.time_slot) = 52 --week 52 has one unbooked and one with two seats left, also one fully booked
+    EXTRACT(WEEK FROM lesson.time_slot) = 52; --week 52 has one unbooked and one with two seats left, also one fully booked
